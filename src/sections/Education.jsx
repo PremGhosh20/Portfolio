@@ -19,11 +19,11 @@ export default function Education() {
         <div className="edu-timeline">
           {EDUCATION.map((edu, i) => (
             <Reveal key={edu.degree} delay={i * 0.08}>
-              <div className="edu-card card--glow">
-                <div className="edu-icon"><GraduationCap size={24} /></div>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem', marginBottom: '0.375rem' }}>
-                    <h3 className="t-card" style={{ fontSize: '1.125rem' }}>{edu.degree}</h3>
+              <div className="edu-card">
+                <div className="edu-icon"><GraduationCap size={22} /></div>
+                <div className="edu-body">
+                  <div className="edu-title-row">
+                    <h3 className="edu-degree">{edu.degree}</h3>
                     {edu.status && (
                       <Badge variant={edu.status === 'Completed' ? 'muted' : 'success'}>
                         {edu.status}
@@ -31,8 +31,8 @@ export default function Education() {
                     )}
                   </div>
                   <p className="exp-role">{edu.institution}</p>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--border)' }}>
-                    <span className="t-muted" style={{ fontSize: '0.9375rem' }}>{edu.period}</span>
+                  <div className="edu-footer">
+                    <span className="edu-period">{edu.period}</span>
                     <Badge variant="accent">{edu.highlight}</Badge>
                   </div>
                 </div>

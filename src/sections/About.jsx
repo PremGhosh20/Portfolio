@@ -58,8 +58,8 @@ export default function About() {
             </Reveal>
             <Reveal delay={0.3}>
               <div className="milestone-grid">
-                {milestones.map((m) => (
-                  <div key={m.year} className="milestone-card card--glow">
+                {milestones.map((m, i) => (
+                  <div key={`${m.year}-${m.title}`} className="milestone-card">
                     <span className="timeline-year">{m.year}</span>
                     <p className="timeline-title">{m.title}</p>
                     <p className="t-muted" style={{ fontSize: '0.875rem', marginTop: '0.25rem' }}>{m.desc}</p>

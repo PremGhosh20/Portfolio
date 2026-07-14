@@ -25,24 +25,24 @@ export default function Experience() {
             <Reveal key={exp.company} delay={i * 0.1}>
               <div className="exp-item">
                 <div className="exp-dot" />
-                <div className="card exp-card card--hover card--glow">
+                <div className="card exp-card card--hover">
                   <div className="exp-header">
-                    <div className="exp-logo"><Building2 size={22} /></div>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem' }}>
-                        <h3 className="t-card" style={{ fontSize: '1.25rem' }}>{exp.company}</h3>
+                    <div className="exp-logo"><Building2 size={20} /></div>
+                    <div className="exp-meta">
+                      <div className="exp-title-row">
+                        <h3 className="exp-company">{exp.company}</h3>
                         {exp.current && <Badge variant="success">Current</Badge>}
                       </div>
                       <p className="exp-role">{exp.role}</p>
+                      <div className="exp-period">
+                        <Badge variant="muted">{exp.period}</Badge>
+                      </div>
                     </div>
-                    <Badge variant="muted">{exp.period}</Badge>
                   </div>
 
                   {exp.project && (
-                    <div className="panel" style={{ marginBottom: '1.25rem' }}>
-                      <p style={{ fontWeight: 600, color: 'var(--text)', marginBottom: '0.375rem' }}>
-                        Project: {exp.project}
-                      </p>
+                    <div className="panel exp-project">
+                      <p className="exp-project-title">Project: {exp.project}</p>
                       <p className="t-muted" style={{ fontSize: '0.9375rem' }}>{exp.description}</p>
                       {EXP_TECH[exp.company] && (
                         <div className="chip-row" style={{ marginTop: '0.75rem' }}>
