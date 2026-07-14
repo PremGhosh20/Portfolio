@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
   linkedin: 'https://www.linkedin.com/in/prem-ghosh20/',
   githubUsername: 'Premghosh20',
   resumePath: '/Portfolio/Prem_Resume.pdf',
-  siteUrl: 'https://premghosh.github.io/Portfolio/',
+  siteUrl: 'https://premghosh20.github.io/Portfolio/',
 }
 
 export const NAV_LINKS = [

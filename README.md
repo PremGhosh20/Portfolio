@@ -2,7 +2,7 @@
 
 A premium, recruiter-focused developer portfolio built with React, Vite, Tailwind CSS, Framer Motion, and GSAP. Designed to showcase professional experience, projects, skills, and achievements with world-class animations and interactions.
 
-**Live Demo:** [https://premghosh.github.io/Portfolio/](https://premghosh.github.io/Portfolio/)
+**Live Demo:** [https://premghosh20.github.io/Portfolio/](https://premghosh20.github.io/Portfolio/)
 
 ---
 
