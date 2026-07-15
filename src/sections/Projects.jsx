@@ -1,11 +1,11 @@
-import { ExternalLink } from 'lucide-react'
+import { MessageCircle } from 'lucide-react'
 import { FaGithub } from 'react-icons/fa'
 import Tilt from 'react-parallax-tilt'
 import SectionHeading from '../components/ui/SectionHeading'
 import Badge from '../components/ui/Badge'
 import Button from '../components/ui/Button'
 import Reveal from '../components/ui/Reveal'
-import { PROJECTS } from '../constants'
+import { PROJECTS, getProjectWhatsAppLink } from '../constants'
 
 const GRADIENT_MAP = {
   'from-blue-600 to-cyan-500': 'linear-gradient(135deg, #2563eb, #06b6d4)',
@@ -93,8 +93,14 @@ export default function Projects() {
                         <Button variant="secondary" size="sm" href={project.github} target="_blank" rel="noopener noreferrer">
                           <FaGithub size={13} /> GitHub
                         </Button>
-                        <Button variant="primary" size="sm" href={project.live} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink size={13} /> Live Demo
+                        <Button
+                          variant="primary"
+                          size="sm"
+                          href={getProjectWhatsAppLink(project)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <MessageCircle size={13} /> Request Demo
                         </Button>
                       </div>
                     </div>

@@ -9,6 +9,19 @@ export const SITE_CONFIG = {
   githubUsername: 'Premghosh20',
   resumePath: '/Portfolio/Prem_Resume.pdf',
   siteUrl: 'https://premghosh20.github.io/Portfolio/',
+  /** Digits only with country code, e.g. 919876543210 */
+  whatsapp: '918329796758',
+}
+
+/** Build WhatsApp deep link with a project demo request message */
+export function getProjectWhatsAppLink(project) {
+  const number = String(SITE_CONFIG.whatsapp || '').replace(/\D/g, '')
+  const message = [
+    `Hi Prem, I found your portfolio and I'd like to test your project "${project.title}"`,
+    project.subtitle ? ` (${project.subtitle}).` : '.',
+    ' Could you please share the live demo / access details?',
+  ].join('')
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`
 }
 
 export const NAV_LINKS = [
