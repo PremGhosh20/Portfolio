@@ -38,7 +38,7 @@ export const ABOUT_CONTENT = {
     'My journey began with a passion for technology during my BSc in Information Technology at the University of Mumbai. Through rigorous coursework and multiple internships, I honed my skills in full-stack development, from crafting pixel-perfect UIs to building robust backend APIs.',
   goals:
     'I aim to grow as a software engineer at a product-driven company, contributing to impactful projects while continuously expanding my expertise in cloud technologies, DevOps, and AI-powered applications.',
-  currentPosition: 'Web Trainee & Digital Marketing Intern at BrandBase Capsule Pvt. Ltd.',
+  currentPosition: 'Web Trainee & Digital Marketing at BrandBase Capsule Pvt. Ltd.',
 }
 
 export const STATS = [
