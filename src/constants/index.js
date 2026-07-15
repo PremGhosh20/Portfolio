@@ -89,7 +89,7 @@ export const SKILLS = {
 export const EXPERIENCE = [
   {
     company: 'BrandBase Capsule Pvt. Ltd.',
-    role: 'Web Trainee & Digital Marketing Intern',
+    role: 'Web Trainee & Digital Marketing',
     period: 'July 2026 – Present',
     current: true,
     responsibilities: [
