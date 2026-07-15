@@ -1,15 +1,17 @@
 import { Link } from 'react-scroll'
-import { Download, Sun, Moon } from 'lucide-react'
+import { Download, Sun, Moon, Search } from 'lucide-react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { NAV_LINKS, SITE_CONFIG } from '../constants'
 import { useTheme } from '../hooks/useTheme'
 import { useActiveSection } from '../hooks/useActiveSection'
+import { useCommandPalette } from '../hooks/useCommandPalette'
 import Button, { IconButton } from '../components/ui/Button'
 
 const OFFSET = -72
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme()
+  const { openPalette } = useCommandPalette()
   const active = useActiveSection(NAV_LINKS.map((l) => l.to))
 
   return (
@@ -34,6 +36,19 @@ export default function Navbar() {
         </nav>
 
         <div className="nav-actions">
+          <button
+            type="button"
+            className="nav-search"
+            onClick={openPalette}
+            aria-label="Search portfolio (Ctrl+K)"
+          >
+            <Search size={15} strokeWidth={2.25} />
+            <span className="nav-search-label">Search</span>
+            <kbd className="nav-search-kbd">
+              <span>Ctrl</span>
+              <span>K</span>
+            </kbd>
+          </button>
           <IconButton href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" className="nav-action-hide-sm" aria-label="GitHub">
             <FaGithub size={16} />
           </IconButton>

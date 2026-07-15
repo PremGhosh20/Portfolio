@@ -16,6 +16,7 @@ import {
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { COMMAND_ITEMS, SITE_CONFIG } from '../constants'
 import { useTheme } from '../hooks/useTheme'
+import { useCommandPalette } from '../hooks/useCommandPalette'
 import { copyToClipboard, scrollToSection } from '../utils'
 
 const ICON_MAP = {
@@ -40,17 +41,17 @@ function CommandIcon({ name }) {
 }
 
 export default function CommandPalette() {
-  const [open, setOpen] = useState(false)
+  const { open, setOpen, closePalette } = useCommandPalette()
   const [query, setQuery] = useState('')
   const [activeIndex, setActiveIndex] = useState(0)
   const listRef = useRef(null)
   const { toggleTheme } = useTheme()
 
   const close = useCallback(() => {
-    setOpen(false)
+    closePalette()
     setQuery('')
     setActiveIndex(0)
-  }, [])
+  }, [closePalette])
 
   const handleAction = useCallback(
     (action) => {
@@ -148,7 +149,7 @@ export default function CommandPalette() {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [open, filtered, activeIndex, handleAction, close])
+  }, [open, filtered, activeIndex, handleAction, close, setOpen])
 
   useEffect(() => {
     if (!open) return
@@ -282,21 +283,6 @@ export default function CommandPalette() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className="cmd-trigger"
-        aria-label="Open command palette"
-      >
-        <Search size={15} strokeWidth={2.25} />
-        <span className="cmd-trigger-label">Search Portfolio</span>
-        <kbd className="cmd-trigger-keys">
-          <span>Ctrl</span>
-          <span>+</span>
-          <span>K</span>
-        </kbd>
-      </button>
     </>
   )
 }

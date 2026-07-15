@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import { ThemeProvider } from '../hooks/useTheme'
+import { CommandPaletteProvider } from '../hooks/useCommandPalette'
 import { useLenis } from '../hooks/useLenis'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -11,13 +12,15 @@ export default function MainLayout() {
 
   return (
     <ThemeProvider>
-      <ScrollProgress />
-      <CommandPalette />
-      <Navbar />
-      <main>
-        <Outlet />
-      </main>
-      <Footer />
+      <CommandPaletteProvider>
+        <ScrollProgress />
+        <CommandPalette />
+        <Navbar />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
+      </CommandPaletteProvider>
     </ThemeProvider>
   )
 }
