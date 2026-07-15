@@ -11,6 +11,8 @@ export const SITE_CONFIG = {
   siteUrl: 'https://premghosh20.github.io/Portfolio/',
   /** Digits only with country code, e.g. 919876543210 */
   whatsapp: '918329796758',
+  phoneDisplay: '+91 83297 96758',
+  phoneTel: '+918329796758',
 }
 
 /** Build WhatsApp deep link with a project demo request message */
