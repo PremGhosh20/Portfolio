@@ -63,7 +63,10 @@ export default function Projects() {
                           <p className="project-section-label">My Contribution</p>
                           <ul className="exp-list">
                             {project.contributions.map((c) => (
-                              <li key={c}><span style={{ color: 'var(--primary)' }}>→</span><span>{c}</span></li>
+                              <li key={c}>
+                                <span className="exp-bullet" aria-hidden="true">→</span>
+                                <span className="exp-text">{c}</span>
+                              </li>
                             ))}
                           </ul>
                         </div>
