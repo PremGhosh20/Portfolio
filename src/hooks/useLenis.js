@@ -12,6 +12,7 @@ export function useLenis() {
     })
 
     lenisRef.current = lenis
+    window.__lenis = lenis
 
     function raf(time) {
       lenis.raf(time)
@@ -20,7 +21,15 @@ export function useLenis() {
 
     requestAnimationFrame(raf)
 
+    const lock = () => lenis.stop()
+    const unlock = () => lenis.start()
+    window.addEventListener('portfolio:scroll-lock', lock)
+    window.addEventListener('portfolio:scroll-unlock', unlock)
+
     return () => {
+      window.removeEventListener('portfolio:scroll-lock', lock)
+      window.removeEventListener('portfolio:scroll-unlock', unlock)
+      if (window.__lenis === lenis) delete window.__lenis
       lenis.destroy()
     }
   }, [])
