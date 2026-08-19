@@ -46,7 +46,8 @@ export default function Hero() {
             {firstNames}{' '}
             <span className="t-gradient">{lastName}</span>
           </h1>
-          <div style={{ height: '2.25rem', marginTop: '1rem' }}>
+          <p className="hero-role">{SITE_CONFIG.title}</p>
+          <div style={{ height: '2.25rem', marginTop: '0.5rem' }}>
             <span ref={typedRef} style={{ fontSize: '1.25rem', fontWeight: 600, color: '#60a5fa' }} />
           </div>
           <p className="t-body hero-summary">{HERO_SUMMARY}</p>

@@ -16,7 +16,7 @@ export default function Footer() {
               Prem Shrikant Ghosh
             </div>
             <p className="t-muted" style={{ maxWidth: '320px', fontSize: '0.9375rem' }}>
-              Full Stack Developer building modern, scalable web applications.
+              Software Engineer & Full Stack Developer.
             </p>
           </div>
 

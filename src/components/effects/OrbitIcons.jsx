@@ -1,12 +1,12 @@
 import {
-  SiReact, SiNextdotjs, SiNodedotjs, SiExpress, SiMongodb,
-  SiMysql, SiJavascript, SiGit, SiGithub,
+  SiReact, SiNextdotjs, SiNodedotjs, SiMongodb,
+  SiMysql, SiJavascript, SiGit, SiGithub, SiCplusplus,
 } from 'react-icons/si'
 import { FLOATING_TECH } from '../../constants'
 
 const ICON_MAP = {
-  SiReact, SiNextdotjs, SiNodedotjs, SiExpress, SiMongodb,
-  SiMysql, SiJavascript, SiGit, SiGithub,
+  SiReact, SiNextdotjs, SiNodedotjs, SiMongodb,
+  SiMysql, SiJavascript, SiGit, SiGithub, SiCplusplus,
 }
 
 export default function OrbitIcons() {

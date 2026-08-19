@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import {
-  SiReact, SiNextdotjs, SiNodedotjs, SiMongodb, SiJavascript, SiGit,
+  SiReact, SiNextdotjs, SiNodedotjs, SiMongodb, SiJavascript, SiCplusplus,
 } from 'react-icons/si'
 import { SITE_CONFIG } from '../../constants'
 
@@ -8,9 +8,9 @@ const TECH_STACK = [
   { Icon: SiReact, label: 'React', color: '#61DAFB' },
   { Icon: SiNextdotjs, label: 'Next.js', color: '#ffffff' },
   { Icon: SiNodedotjs, label: 'Node.js', color: '#339933' },
-  { Icon: SiMongodb, label: 'MongoDB', color: '#47A248' },
+  { Icon: SiCplusplus, label: 'C++', color: '#00599C' },
   { Icon: SiJavascript, label: 'JavaScript', color: '#F7DF1E' },
-  { Icon: SiGit, label: 'Git', color: '#F05032' },
+  { Icon: SiMongodb, label: 'MongoDB', color: '#47A248' },
 ]
 
 export default function HeroVisual() {
@@ -32,8 +32,8 @@ export default function HeroVisual() {
           <p><span className="hero-code-kw">const</span> developer = {'{'}</p>
           <p>&nbsp;&nbsp;name: <span className="hero-code-str">"{SITE_CONFIG.shortName}"</span>,</p>
           <p>&nbsp;&nbsp;role: <span className="hero-code-str">"{SITE_CONFIG.title}"</span>,</p>
-          <p>&nbsp;&nbsp;stack: [<span className="hero-code-str">"React"</span>, <span className="hero-code-str">"Node.js"</span>, <span className="hero-code-str">"Next.js"</span>],</p>
-          <p>&nbsp;&nbsp;passion: <span className="hero-code-str">"Building products"</span></p>
+          <p>&nbsp;&nbsp;stack: [<span className="hero-code-str">"React"</span>, <span className="hero-code-str">"Node.js"</span>, <span className="hero-code-str">"C++"</span>],</p>
+          <p>&nbsp;&nbsp;focus: <span className="hero-code-str">"Software engineering"</span></p>
           <p>{'};'}</p>
         </div>
       </motion.div>

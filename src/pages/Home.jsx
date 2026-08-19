@@ -2,6 +2,7 @@ import Hero from '../sections/Hero'
 import About from '../sections/About'
 import Stats from '../sections/Stats'
 import Skills from '../sections/Skills'
+import Interests from '../sections/Interests'
 import Experience from '../sections/Experience'
 import Projects from '../sections/Projects'
 import Certifications from '../sections/Certifications'
@@ -16,6 +17,7 @@ export default function Home() {
       <About />
       <Stats />
       <Skills />
+      <Interests />
       <Experience />
       <Projects />
       <Certifications />

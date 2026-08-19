@@ -14,7 +14,7 @@ export default function Certifications() {
           <SectionHeading
             label="Credentials"
             title="Certifications"
-            subtitle="Professional certifications and continuous learning."
+            subtitle="Completed certifications aligned with software engineering and foundational AI learning."
           />
         </Reveal>
 
@@ -26,8 +26,9 @@ export default function Certifications() {
                 <div className="cert-card card--glow">
                   <div className="cert-icon-wrap"><Icon size={24} /></div>
                   <h3 className="t-card" style={{ fontSize: '1.125rem' }}>{cert.title}</h3>
-                  <p className="t-muted" style={{ marginTop: '0.375rem', fontSize: '0.9375rem' }}>{cert.issuer}</p>
-                  <span className="cert-credential">Verified Credential</span>
+                  {cert.issuer && (
+                    <p className="t-muted" style={{ marginTop: '0.375rem', fontSize: '0.9375rem' }}>{cert.issuer}</p>
+                  )}
                   <Badge variant="accent" style={{ marginTop: '0.75rem' }}>Certified</Badge>
                 </div>
               </Reveal>

@@ -1,5 +1,6 @@
-import { STATS } from '../constants'
+import { STATS, SITE_CONFIG } from '../constants'
 import { useCounter } from '../hooks/useCounter'
+import { useGitHub } from '../hooks/useGitHub'
 import Reveal from '../components/ui/Reveal'
 
 function StatCell({ stat }) {
@@ -13,12 +14,18 @@ function StatCell({ stat }) {
 }
 
 export default function Stats() {
+  const { data } = useGitHub(SITE_CONFIG.githubUsername)
+  const stats = [...STATS]
+  if (typeof data?.public_repos === 'number') {
+    stats.push({ label: 'GitHub Repos', value: data.public_repos, suffix: '' })
+  }
+
   return (
     <section className="stats-bar" style={{ paddingBottom: 'var(--section-y)' }}>
       <div className="container">
         <Reveal>
-          <div className="stats-bar-inner card">
-            {STATS.map((stat) => (
+          <div className={`stats-bar-inner card stats-bar-inner--${stats.length}`}>
+            {stats.map((stat) => (
               <StatCell key={stat.label} stat={stat} />
             ))}
           </div>

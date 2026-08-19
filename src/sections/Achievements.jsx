@@ -1,28 +1,37 @@
-import { Trophy, Star, Briefcase, Rocket, Cloud } from 'lucide-react'
+import { Trophy, Star, Briefcase, Rocket, Code2, TrendingUp } from 'lucide-react'
 import SectionHeading from '../components/ui/SectionHeading'
 import Reveal from '../components/ui/Reveal'
 import { ACHIEVEMENTS } from '../constants'
 import { useCounter } from '../hooks/useCounter'
 
-const iconMap = { trophy: Trophy, star: Star, briefcase: Briefcase, rocket: Rocket, cloud: Cloud }
+const iconMap = {
+  trophy: Trophy,
+  star: Star,
+  briefcase: Briefcase,
+  rocket: Rocket,
+  code: Code2,
+  growth: TrendingUp,
+}
 
-function CgpiCounter() {
-  const [count, ref] = useCounter(9.53, 1800, 2)
-  return <div ref={ref} className="achievement-num">CGPI {count}</div>
+function Metric({ metric }) {
+  const [count, ref] = useCounter(metric.value, 1800, metric.decimals || 0)
+  return <div ref={ref} className="achievement-num">{metric.prefix || ''}{count}{metric.suffix || ''}</div>
 }
 
 function AchievementCard({ item, index }) {
   const Icon = iconMap[item.icon] || Star
-  const isCgpi = item.title === 'CGPI 9.53'
 
   return (
     <Reveal delay={index * 0.06}>
       <div className="achievement-spotlight card--glow">
         <div className="achievement-icon"><Icon size={26} /></div>
-        {isCgpi ? (
-          <CgpiCounter />
+        {item.metric ? (
+          <Metric metric={item.metric} />
         ) : (
           <p className="t-card" style={{ fontSize: item.title.length > 20 ? '1rem' : '1.25rem' }}>{item.title}</p>
+        )}
+        {item.metric && (
+          <p className="t-card" style={{ fontSize: '1rem', marginTop: '0.35rem' }}>{item.title}</p>
         )}
         <p className="t-muted" style={{ marginTop: '0.5rem', fontSize: '0.9375rem' }}>{item.description}</p>
       </div>
@@ -38,7 +47,7 @@ export default function Achievements() {
           <SectionHeading
             label="Highlights"
             title="Achievements"
-            subtitle="Milestones that define my journey as a developer."
+            subtitle="Academic and professional milestones from internships, projects, and coursework."
           />
         </Reveal>
 

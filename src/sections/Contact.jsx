@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
-import { Mail, Send, Phone } from 'lucide-react'
+import { Mail, Send } from 'lucide-react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import SectionHeading from '../components/ui/SectionHeading'
 import Button from '../components/ui/Button'
@@ -15,18 +15,18 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'your_publ
 function ContactCard({ icon: Icon, label, value, href }) {
   const isExternal = href && !href.startsWith('mailto:') && !href.startsWith('tel:')
   const Tag = href ? 'a' : 'div'
+
   return (
     <Tag
       href={href}
       target={isExternal ? '_blank' : undefined}
       rel={isExternal ? 'noopener noreferrer' : undefined}
       className="contact-card"
-      style={{ cursor: href ? 'pointer' : 'default', textDecoration: 'none', color: 'inherit' }}
     >
       <div className="contact-icon"><Icon size={20} /></div>
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <p className="t-label" style={{ marginBottom: '0.25rem', fontSize: '0.6875rem' }}>{label}</p>
-        <p style={{ fontWeight: 500, color: 'var(--text)', fontSize: '0.9375rem' }}>{value}</p>
+      <div className="contact-card-body">
+        <p className="contact-card-label">{label}</p>
+        <p className="contact-card-value">{value}</p>
       </div>
     </Tag>
   )
@@ -83,12 +83,6 @@ export default function Contact() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <p className="t-muted">I'm open to opportunities and collaborations. Reach out anytime.</p>
               <ContactCard icon={Mail} label="Email" value={SITE_CONFIG.email} href={`mailto:${SITE_CONFIG.email}`} />
-              <ContactCard
-                icon={Phone}
-                label="Phone"
-                value={SITE_CONFIG.phoneDisplay}
-                href={`tel:${SITE_CONFIG.phoneTel}`}
-              />
               <ContactCard icon={FaGithub} label="GitHub" value={`@${SITE_CONFIG.githubUsername}`} href={SITE_CONFIG.github} />
               <ContactCard icon={FaLinkedin} label="LinkedIn" value="Prem Shrikant Ghosh" href={SITE_CONFIG.linkedin} />
             </div>

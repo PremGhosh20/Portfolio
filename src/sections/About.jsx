@@ -1,14 +1,7 @@
 import { MapPin } from 'lucide-react'
 import SectionHeading from '../components/ui/SectionHeading'
 import Reveal from '../components/ui/Reveal'
-import { ABOUT_CONTENT } from '../constants'
-
-const milestones = [
-  { year: '2023', title: 'Started BSc IT', desc: 'University of Mumbai' },
-  { year: '2026', title: 'First Internship', desc: 'ElevanceSkills — Full Stack Developer' },
-  { year: '2026', title: 'Software Engineer Intern', desc: 'Gohil Tech Empire — Way To Event' },
-  { year: 'Now', title: 'Web Trainee', desc: 'BrandBase Capsule Pvt. Ltd.' },
-]
+import { ABOUT_CONTENT, ABOUT_MILESTONES, SITE_CONFIG } from '../constants'
 
 export default function About() {
   return (
@@ -18,7 +11,7 @@ export default function About() {
           <SectionHeading
             label="About"
             title="About Me"
-            subtitle="Passionate developer with a drive for building impactful digital solutions."
+            subtitle="Software engineering and full-stack development, with a growing focus on AI systems."
           />
         </Reveal>
 
@@ -27,8 +20,9 @@ export default function About() {
             <aside>
               <div className="card card-pad-lg" style={{ textAlign: 'center' }}>
                 <div className="about-avatar" style={{ margin: '0 auto 1.5rem' }}>PG</div>
-                <h3 className="t-card" style={{ fontSize: '1.25rem' }}>Prem Shrikant Ghosh</h3>
-                <p className="exp-role">Full Stack Developer</p>
+                <h3 className="t-card" style={{ fontSize: '1.25rem' }}>{SITE_CONFIG.name}</h3>
+                <p className="exp-role">{SITE_CONFIG.title}</p>
+                <p className="t-muted" style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>{SITE_CONFIG.location}</p>
               </div>
               <div className="card card-pad" style={{ marginTop: '1.25rem', display: 'flex', gap: '1rem' }}>
                 <div className="contact-icon"><MapPin size={20} /></div>
@@ -58,7 +52,7 @@ export default function About() {
             </Reveal>
             <Reveal delay={0.3}>
               <div className="milestone-grid">
-                {milestones.map((m, i) => (
+                {ABOUT_MILESTONES.map((m) => (
                   <div key={`${m.year}-${m.title}`} className="milestone-card">
                     <span className="timeline-year">{m.year}</span>
                     <p className="timeline-title">{m.title}</p>

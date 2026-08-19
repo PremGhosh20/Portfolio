@@ -4,10 +4,6 @@ import Badge from '../components/ui/Badge'
 import Reveal from '../components/ui/Reveal'
 import { EXPERIENCE } from '../constants'
 
-const EXP_TECH = {
-  'Gohil Tech Empire Pvt. Ltd.': ['Next.js', 'Supabase', 'TypeScript'],
-}
-
 export default function Experience() {
   return (
     <section id="experience" className="section section--alt">
@@ -16,7 +12,7 @@ export default function Experience() {
           <SectionHeading
             label="Career"
             title="Professional Experience"
-            subtitle="Building real products across startups and technology companies."
+            subtitle="Internships across software engineering, full-stack development, and web development."
           />
         </Reveal>
 
@@ -34,22 +30,19 @@ export default function Experience() {
                         {exp.current && <Badge variant="success">Current</Badge>}
                       </div>
                       <p className="exp-role">{exp.role}</p>
-                      <div className="exp-period">
-                        <Badge variant="muted">{exp.period}</Badge>
-                      </div>
+                      {exp.period && (
+                        <div className="exp-period">
+                          <Badge variant="muted">{exp.period}</Badge>
+                        </div>
+                      )}
                     </div>
                   </div>
 
                   {exp.project && (
                     <div className="panel exp-project">
                       <p className="exp-project-title">Project: {exp.project}</p>
-                      <p className="t-muted" style={{ fontSize: '0.9375rem' }}>{exp.description}</p>
-                      {EXP_TECH[exp.company] && (
-                        <div className="chip-row" style={{ marginTop: '0.75rem' }}>
-                          {EXP_TECH[exp.company].map((t) => (
-                            <Badge key={t} variant="accent">{t}</Badge>
-                          ))}
-                        </div>
+                      {exp.description && (
+                        <p className="t-muted" style={{ fontSize: '0.9375rem' }}>{exp.description}</p>
                       )}
                     </div>
                   )}

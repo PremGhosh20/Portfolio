@@ -32,7 +32,7 @@ export default function Education() {
                   </div>
                   <p className="exp-role">{edu.institution}</p>
                   <div className="edu-footer">
-                    <span className="edu-period">{edu.period}</span>
+                    {edu.period ? <span className="edu-period">{edu.period}</span> : <span />}
                     <Badge variant="accent">{edu.highlight}</Badge>
                   </div>
                 </div>
